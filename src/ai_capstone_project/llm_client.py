@@ -2,7 +2,7 @@ import ollama
 
 MODEL_NAME = "llama3.2"
 
-def generate(prompt: str) -> str:
+def ask_model(prompt):
     response = ollama.chat(
         model=MODEL_NAME,
         messages=[
@@ -12,4 +12,4 @@ def generate(prompt: str) -> str:
     )
     return response["message"]["content"]
 if __name__ == "__main__":
-    print(generate("Write a two sentence ad for a coffee shop named Bloom and Brunch."))
+    print(ask_model("Write a two sentence ad for a coffee shop named Bloom and Brunch."))
