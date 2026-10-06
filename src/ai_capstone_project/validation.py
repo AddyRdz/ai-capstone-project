@@ -1,7 +1,7 @@
 REQUIRED_FIELDS = ["product", "audience", "goal", "channel", "tone"]
 MARKETING_CHANNELS = ["email", "social_post"]
 
-def validate_inputs(data:dict) -> list[str]:
+def validate_inputs(data):
     problems = []
     for field in REQUIRED_FIELDS:
         value = data.get(field, "").strip()
