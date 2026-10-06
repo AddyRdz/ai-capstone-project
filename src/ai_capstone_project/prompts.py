@@ -8,10 +8,14 @@ CHANNEL_INSTRUCTIONS = {
 def build_prompt(data):
     rules = CHANNEL_INSTRUCTIONS[data["channel"]]
     return(
-        f"Product or service:{data['product']}\n"
-        f"Target audience:{data['audience']}\n"
-        f"Goal:{data['goal']}\n"
-        f"Tone:{data['tone']}\n"
-        f"Instructions:{data[rules]}\n"
+        f"Product or service: {data['product']}\n"
+        f"Target audience: {data['audience']}\n"
+        f"Goal: {data['goal']}\n"
+        f"Tone: {data['tone']}\n"
+        f"Instructions: {rules}\n"
         f"Do not invent facts, prices, or statistics not provided above."
     )
+
+if __name__ == "__main__":
+    data = {"product": "Coffee shop", "audience": "Locals", "goal": "More visits", "channel": "email", "tone": "friendly"}
+    print(build_prompt(data))       
