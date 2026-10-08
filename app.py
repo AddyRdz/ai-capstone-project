@@ -9,8 +9,8 @@ with st.form("marketing_form"):
     product = st.text_input ("Product or service")
     audience = st.text_input ("Audience")
     goal = st.text_input ("Goal")
-    tone = st.text_input ("Tone")
-    channel = st.selectbox("Channel", ["email", "social_post", "ad _copy"])
+    tone = st.selectbox("Tone", ["Authentic", "Bold", "Excited","Humorous", "Inspirational", "Luxurious", "Witty"])
+    channel = st.selectbox("Channel", ["Email", "Social Post", "Ad copy"])
     submitted = st.form_submit_button("Generate")
     if submitted:
         data = {
@@ -25,6 +25,7 @@ with st.form("marketing_form"):
             for p in problems:
                 st.error(p)
         else:
-            prompt = build_prompt(data)
-            draft = ask_model(prompt)
+            with st.spinner("Generating info..."):
+                prompt = build_prompt(data)
+                draft = ask_model(prompt)
             st.write(draft)
