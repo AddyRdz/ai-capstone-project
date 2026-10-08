@@ -10,7 +10,7 @@ with st.form("marketing_form"):
     audience = st.text_input ("Audience")
     goal = st.text_input ("Goal")
     tone = st.text_input ("Tone")
-    channel = st.selectbox("Channel", ["Email", "Social Post", "Ad Copy"])
+    channel = st.selectbox("Channel", ["email", "social_post", "ad _copy"])
     submitted = st.form_submit_button("Generate")
     if submitted:
         data = {
@@ -20,4 +20,11 @@ with st.form("marketing_form"):
             "channel" : channel,
             "tone" : tone,
         }
-        st.write(data)
+        problems = validate_inputs(data)
+        if problems:
+            for p in problems:
+                st.error(p)
+        else:
+            prompt = build_prompt(data)
+            draft = ask_model(prompt)
+            st.write(draft)
