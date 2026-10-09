@@ -1,5 +1,5 @@
 REQUIRED_FIELDS = ["product", "audience", "goal", "channel", "tone"]
-MARKETING_CHANNELS = ["email", "social_post", "ad_copy"]
+MARKETING_CHANNELS = ["Email", "Social Post", "Ad Copy"]
 
 def validate_inputs(data):
     problems = []

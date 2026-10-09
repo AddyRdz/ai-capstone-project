@@ -10,7 +10,7 @@ with st.form("marketing_form"):
     audience = st.text_input ("Audience")
     goal = st.text_input ("Goal")
     tone = st.selectbox("Tone", ["Authentic", "Bold", "Excited","Humorous", "Inspirational", "Luxurious", "Witty"])
-    channel = st.selectbox("Channel", ["Email", "Social Post", "Ad copy"])
+    channel = st.selectbox("Channel", ["Email", "Social Post", "Ad Copy"])
     submitted = st.form_submit_button("Generate")
     if submitted:
         data = {
